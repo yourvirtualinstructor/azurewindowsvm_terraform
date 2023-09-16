@@ -24,19 +24,6 @@ resource "azurerm_network_interface" "myWinNic" {
   }
 }
 
-resource "azurerm_network_interface" "myLinNic" {
-  name                = "myLinNic1"
-  
-  resource_group_name             = azurerm_resource_group.rg.name
-  location                        = azurerm_resource_group.rg.location
-
-  ip_configuration {
-    name                          = "internal"
-    subnet_id                     = azurerm_subnet.mySubnet.id
-    private_ip_address_allocation = "Dynamic"
-  }
-}
-
 # Windows VM
 resource "azurerm_windows_virtual_machine" "myWindowsVm1" {
   name                            = "mywindowsvm1"
