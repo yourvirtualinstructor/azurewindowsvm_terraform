@@ -7,7 +7,7 @@ resource "azurerm_virtual_network" "myVnet" {
 
 resource "azurerm_subnet" "mySubnet" {
   name                 = "mySubnet1"
-  resource_group_name             = azurerm_resource_group.rg.name
+  resource_group_name  = azurerm_resource_group.rg.name
   virtual_network_name = azurerm_virtual_network.myVnet.name
   address_prefixes     = ["10.0.2.0/24"]
 }
@@ -30,7 +30,7 @@ resource "azurerm_windows_virtual_machine" "myWindowsVm1" {
   computer_name                   = "mywindowsvm1"
   resource_group_name             = azurerm_resource_group.rg.name
   location                        = azurerm_resource_group.rg.location
-  size                          = "Standard_B2s"
+  size                            = "Standard_DS2_v2"
   admin_username                  = "adminlogin"
   admin_password                  = "Password@123"
   
@@ -48,9 +48,9 @@ resource "azurerm_windows_virtual_machine" "myWindowsVm1" {
   }
   
   source_image_reference {
-    publisher = "MicrosoftWindowsServer"
-    offer     = "WindowsServer"
-    sku       = "2016-Datacenter"
+    publisher = "MicrosoftWindowsDesktop"
+    offer     = "Windows-10"
+    sku       = "21h1-pro"
     version   = "latest"
   }
  
