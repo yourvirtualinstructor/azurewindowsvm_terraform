@@ -31,6 +31,8 @@ resource "azurerm_windows_virtual_machine" "myWindowsVm1" {
   resource_group_name             = azurerm_resource_group.rg.name
   location                        = azurerm_resource_group.rg.location
   size                            = "Standard_DS2_v2"
+  eviction_policy                 = "Delete"
+  priority                        =  "Spot"
   admin_username                  = "adminlogin"
   admin_password                  = "Password@123"
   
