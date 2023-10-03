@@ -50,7 +50,7 @@ resource "azurerm_windows_virtual_machine" "myWindowsVm1" {
   source_image_reference {
     publisher = "WindowsServer"
     offer     = "MicrosoftWindowsServer"
-    sku       = "2016-Datacenter"
+    sku       = "Win2016Datacenter"
     version   = "latest"
   }
  
