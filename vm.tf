@@ -30,14 +30,14 @@ resource "azurerm_windows_virtual_machine" "myWindowsVm1" {
   computer_name                   = "mywindowsvm1"
   resource_group_name             = azurerm_resource_group.rg.name
   location                        = azurerm_resource_group.rg.location
-  size                            = "standard_b2s"
+  size                            = "Standard_D1"
   eviction_policy                 = "Delete"
   priority                        =  "Spot"
   admin_username                  = "adminlogin"
   admin_password                  = "Password@123"
   
   identity {
-    type         = "SystemAssigned"
+    type         = "SystemAssigned"  
   }
 
   network_interface_ids = [
@@ -50,9 +50,9 @@ resource "azurerm_windows_virtual_machine" "myWindowsVm1" {
   }
   
   source_image_reference {
-    publisher = "MicrosoftWindowsDesktop"
-    offer     = "Windows-10"
-    sku       = "21h1-pro"
+    publisher = "WindowsServer"
+    offer     = "MicrosoftWindowsServer"
+    sku       = "2016-Datacenter"
     version   = "latest"
   }
  
